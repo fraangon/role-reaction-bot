@@ -14,5 +14,4 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
-  handleMensaje(msg);
 });
