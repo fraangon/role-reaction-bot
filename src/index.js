@@ -1,7 +1,7 @@
-import { Client, MessageEmbed } from 'discord.js';
+import { Client } from 'discord.js';
 import dotenv from 'dotenv';
 
-import { handleMensaje } from './handle-mensaje/handle-mensaje.js';
+import { handleReactions } from './functions/handle-reaction.js'
 
 dotenv.config();
 
@@ -13,5 +13,6 @@ client.on('ready', () => {
   console.log('BOT is Ready');
 });
 
-client.on('message', (msg) => {
+client.on('messageReactionAdd', ({message}) => {
+  handleReactions(message)
 });
