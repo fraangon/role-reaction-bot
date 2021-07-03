@@ -1,8 +1,8 @@
 export const RULES = [
     {
-        emoji: '👍',
-        count: 1,
-        role: 'Caca'
+        emoji: '❌',
+        count: 2,
+        role: 'Boludo'
     },
     {
         emoji: 'Oveja',
@@ -10,3 +10,5 @@ export const RULES = [
         role: 'Capo de la vida'
     }
 ];
+
+export const ASSIGN_MESSAGE = 'Felicitaciones {{username}}, ahora sos {{role}}.';

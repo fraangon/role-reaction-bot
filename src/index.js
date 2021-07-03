@@ -12,6 +12,7 @@ client.on('ready', () => {
   console.log('BOT is Ready');
 });
 
-client.on('messageReactionAdd', ({ message }) => {
+client.on('messageReactionAdd', ({ message, emoji }) => {
+  console.log('new reaction: ', emoji.name);
   handleReactions(message);
 });

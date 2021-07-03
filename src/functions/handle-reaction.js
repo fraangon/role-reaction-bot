@@ -2,6 +2,8 @@
 
 import { RULES } from '../constants.js';
 
+import { roleAssignedMessege } from './role-assing-messsage.js';
+
 const getRolByName = (name, guild) => {
     const role = guild.roles.cache.find(aRole => aRole.name === name);
     if (!role) {
@@ -10,7 +12,7 @@ const getRolByName = (name, guild) => {
     return role;
 };
 
-const assignRole = ({ member, guild }, role) => {
+const assignRole = ({ member, guild, channel }, role) => {
     const { roles, user } = member;
     const aRole = getRolByName(role, guild);
 
@@ -20,7 +22,7 @@ const assignRole = ({ member, guild }, role) => {
         console.log(`The role ${aRole.name} will be assigned to ${user.username}`);
 
         roles.add([aRole]);
-        // roleAssignedMessege(chanel, aRole, user);
+        roleAssignedMessege(channel, aRole, user);
     }
 };
 
