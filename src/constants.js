@@ -1,11 +1,11 @@
 export const RULES = [
     {
-        emoji: ':poop:',
+        emoji: '👍',
         count: 1,
         role: 'Caca'
     },
     {
-        emoji: ':thumbsup:',
+        emoji: 'Oveja',
         count: 1,
         role: 'Capo de la vida'
     }
