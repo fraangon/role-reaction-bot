@@ -39,7 +39,7 @@ const unassignRole = ({ member, guild, channel }, role) => {
     if (roles.cache.has(aRole?.id)) {
         console.log(`The role ${aRole.name} will be unassigned to ${user.username}`);
 
-        // roles.remove([aRole]);
+        roles.remove([aRole]);
         roleUnassignedMessege(channel, aRole, user);
     } else {
         console.log(`The role ${aRole.name} is not assigned to ${user.username}`);
@@ -51,7 +51,7 @@ const handleReaction = ({ emoji: { name: reactionEmoji }, count: reactionCount, 
     RULES.forEach(({ emoji, count, role, removeRole }) => {
         if (emoji === reactionEmoji && count <= reactionCount) {
             if (role) assignRole(message, role);
-            // if (removeRole) unassignRole(message, removeRole);
+            if (removeRole) unassignRole(message, removeRole);
         }
     });
 };

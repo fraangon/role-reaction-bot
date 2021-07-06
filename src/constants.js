@@ -1,13 +1,13 @@
 export const RULES = [
     {
         emoji: '❌',
-        count: 1,
-        role: 'Boludo'
+        count: 15,
+        role: 'enjaulado'
     },
     {
         emoji: '🔑',
-        count: 1,
-        removeRole: 'Boludo'
+        count: 15,
+        removeRole: 'enjaulado'
     }
 ];
 
