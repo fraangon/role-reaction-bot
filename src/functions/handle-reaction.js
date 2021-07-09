@@ -1,9 +1,12 @@
+/* eslint-disable no-negated-condition */
 /* eslint-disable curly */
 /* eslint-disable no-console */
 
-import { RULES } from '../constants.js';
+import { RULES, REVIEWED_MESSAGE } from '../constants.js';
 
 import { roleAssignedMessege, roleUnassignedMessege } from './role-assing-messsage.js';
+import { haveAReaction } from './have-a-reaction.js';
+import { checkAsReviewed } from './check-as-reviewed.js';
 
 const getRolByName = (name, guild) => {
     const role = guild.roles.cache.find(aRole => aRole.name === name);
@@ -47,12 +50,15 @@ const unassignRole = ({ member, guild, channel, content }, role) => {
 
 
 const handleReaction = ({ emoji: { name: reactionEmoji }, count: reactionCount, message }) => {
-    RULES.forEach(({ emoji, count, role, removeRole }) => {
-        if (emoji === reactionEmoji && count <= reactionCount) {
-            if (role) assignRole(message, role);
-            if (removeRole) unassignRole(message, removeRole);
-        }
-    });
+    if (!haveAReaction(message, REVIEWED_MESSAGE)) {
+        RULES.forEach(({ emoji, count, role, removeRole }) => {
+            if (emoji === reactionEmoji && count <= reactionCount) {
+                checkAsReviewed(message);
+                if (role) assignRole(message, role);
+                if (removeRole) unassignRole(message, removeRole);
+            }
+        });
+    }
 };
 
 export function handleReactions({ reactions }) {
