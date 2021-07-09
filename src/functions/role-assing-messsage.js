@@ -2,15 +2,15 @@ import { ASSIGN_MESSAGE, UNASSIGN_MESSAGE } from '../constants.js';
 
 const remplaceValue = (value) => (string, text) => string.replace(`{{${value}}}`, text);
 const remplaceUsername = remplaceValue('username');
-const remplaceRole = remplaceValue('role');
+const remplaceMessage = remplaceValue('message');
 
-const assingMessage = (role, user) => remplaceRole(remplaceUsername(ASSIGN_MESSAGE, user.toString()), role.toString());
-const unassingMessage = (role, user) => remplaceRole(remplaceUsername(UNASSIGN_MESSAGE, user.toString()), role.toString());
+const assingMessage = (msg, user) => remplaceMessage(remplaceUsername(ASSIGN_MESSAGE, user.toString()), msg.toString());
+const unassingMessage = (msg, user) => remplaceMessage(remplaceUsername(UNASSIGN_MESSAGE, user.toString()), msg.toString());
 
-export function roleAssignedMessege(channel, role, user) {
-    channel.send(assingMessage(role, user));
+export function roleAssignedMessege(channel, msg, user) {
+    channel.send(assingMessage(msg, user));
 }
 
-export function roleUnassignedMessege(channel, role, user) {
-    channel.send(unassingMessage(role, user));
+export function roleUnassignedMessege(channel, msg, user) {
+    channel.send(unassingMessage(msg, user));
 }
