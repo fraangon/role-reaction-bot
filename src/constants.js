@@ -1,12 +1,12 @@
 export const RULES = [
     {
         emoji: '❌',
-        count: 1,
+        count: 15,
         role: 'enjaulado'
     },
     {
         emoji: '🔑',
-        count: 1,
+        count: 15,
         removeRole: 'enjaulado'
     }
 ];
